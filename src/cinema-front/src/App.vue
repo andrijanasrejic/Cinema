@@ -1,9 +1,12 @@
 <template>
-    <div>
-      <NavBarComponent></NavBarComponent>
-    </div>
+    
     <body>
+      <div>
+        <NavBarComponent></NavBarComponent>
+      <div>
     <router-view></router-view>
+      </div>
+      </div>
     </body>
 </template>
 
@@ -14,10 +17,10 @@
   }
 
   NavBarComponent {
-    position: absolute;
-    z-index: 999;
+    position: relative;
+    z-index:999;
     top: 20px;
-    left: 100000px;
+    left: -100px;
     transform: translateX(100%);
   }  
 

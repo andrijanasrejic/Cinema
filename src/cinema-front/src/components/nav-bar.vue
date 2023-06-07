@@ -21,19 +21,16 @@
 
 <style scoped>
 .navbar {
-  background-color: #333;
-  color: #fff;
+    background-color: #000;
+    color: #fff;
 }
 .nav-list {
   display: flex;
   list-style: none;
   padding: 0;
-  margin: 0;
+  
 }
 
-.nav-item {
-  margin-right: 10px;
-}
 
 .nav-link {
   text-decoration: none;
