@@ -10,6 +10,7 @@ public class Film {
     private String _id;
     private String name;
     private int overall_rating;
+
     List<Integer> ratings;
 
     List<String> projection_times;
