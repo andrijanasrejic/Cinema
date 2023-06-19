@@ -1,12 +1,16 @@
 package back.document;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "database_sequence")
 public class Film {
+    @MongoId
     private String _id;
     private String name;
     private int overall_rating;
@@ -45,9 +49,9 @@ public class Film {
         this.overall_rating = this.ratings.stream().reduce(0, Integer::sum)/this.ratings.size();
     }
 
-    public Film(String _id, String name) {
+    public Film(String name) {
         super();
-        this._id = _id;
+
         this.name = name;
         this.projection_times = new ArrayList<String>();
         this.ratings = new ArrayList<Integer>();

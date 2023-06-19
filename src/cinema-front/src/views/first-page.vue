@@ -13,11 +13,11 @@
         </section>
   
         <section class="section best-rated-movies">
-          <h2>Best Rated Movies</h2>
-          <ul>
-            <li v-for="movie in bestRatedMovies" :key="movie.id">{{ movie.title }}</li>
-          </ul>
+          <div>
+            <BestRatedMoviesComponent></BestRatedMoviesComponent>
+          </div>
         </section>
+
   
         <section class="section movie-search">
           <h2>Movie Search</h2>
@@ -66,9 +66,13 @@
   
   <script>
 
-  import NavBarComponent from '../components/nav-bar.vue';
-
+  
+  import BestRatedMoviesComponent from '../components/best-rated.vue';
+  
   export default {
+    components:{
+      BestRatedMoviesComponent
+    },
     data() {
       return {
         weeklyRepertoire: [

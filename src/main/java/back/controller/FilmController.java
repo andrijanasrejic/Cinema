@@ -1,5 +1,7 @@
 package back.controller;
 import java.sql.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,15 +11,20 @@ import org.springframework.web.client.ResourceAccessException;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/v1")
 @CrossOrigin("*")
 public class FilmController {
 
-    private FilmRepository filmRepository;
-
+    private final FilmRepository filmRepository;
+    @Autowired
+    public FilmController(FilmRepository filmRepository){
+        this.filmRepository = filmRepository;
+    }
     @GetMapping("/filmovi")
     public List<Film> getAllFilms(){
+        System.out.println("Ovde");
         return filmRepository.findAll();
     }
 

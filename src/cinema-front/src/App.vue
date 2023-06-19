@@ -5,6 +5,9 @@
         <NavBarComponent></NavBarComponent>
       <div>
     <router-view></router-view>
+    <div>
+      <bestRatedMoviesComponent></bestRatedMoviesComponent>
+    </div>
       </div>
       </div>
     </body>
@@ -30,11 +33,13 @@
 
 import { RouterLink, RouterView } from 'vue-router'
 import NavBarComponent from './components/nav-bar.vue';
+import BestRatedMoviesComponent from './components/best-rated.vue';
 
 export default {
   name:'App',
   components:{
     NavBarComponent,
+    BestRatedMoviesComponent
   },
   data () {
     return  {
