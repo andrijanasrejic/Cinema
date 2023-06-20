@@ -5,9 +5,7 @@
         <NavBarComponent></NavBarComponent>
       <div>
     <router-view></router-view>
-    <div>
-      <bestRatedMoviesComponent></bestRatedMoviesComponent>
-    </div>
+    
       </div>
       </div>
     </body>

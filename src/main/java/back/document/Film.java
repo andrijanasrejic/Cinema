@@ -55,6 +55,7 @@ public class Film {
         this.name = name;
         this.projection_times = new ArrayList<String>();
         this.ratings = new ArrayList<Integer>();
+        this.overall_rating = 0;
     }
 
     public Film(){

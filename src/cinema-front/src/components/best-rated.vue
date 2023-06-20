@@ -1,7 +1,7 @@
 <template>
-    <h2>Best Rated Movies</h2>
+    <h2>Best Rated Films</h2>
     <ul>
-      <li v-for="movie in movies" :key="movie.name">{{ movie.name }}</li>
+      <li v-for="film in films">{{ film.name }}</li>       
     </ul>
 </template>
 
@@ -15,7 +15,7 @@ export default {
     },
     data() {
         return {
-            movies:[]
+            films:[]
         };
     },
     mounted() {
@@ -23,10 +23,10 @@ export default {
     },
     methods: {
         fetchMovies() {
-            console.log("Mrk");
-            axios.get('http://127.0.0.1:8081/api/v1/filmovi').then(response => {
-                //this.movies = response.data;
-                console.log(response.data);
+            
+            axios.get('http://127.0.0.1:8081/api/v1/films').then(response => {
+                this.films = response.data.sort((f1,f2) => f1.overall_rating - f2.overall_rating);
+                this.films = this.films.slice(0,3);
             })
             .catch(error => {
                 console.log("Error when fetching movies:", error);

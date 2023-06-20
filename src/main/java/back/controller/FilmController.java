@@ -22,16 +22,15 @@ public class FilmController {
     public FilmController(FilmRepository filmRepository){
         this.filmRepository = filmRepository;
     }
-    @GetMapping("/filmovi")
+    @GetMapping("/films")
     public List<Film> getAllFilms(){
-        System.out.println("Ovde");
         return filmRepository.findAll();
     }
 
-    @GetMapping("/filmovi/{id}")
-    public ResponseEntity<Film> getFilmById(@PathVariable(value = "id") String id) throws ResourceAccessException {
-        Film film = filmRepository.findById(id)
-                .orElseThrow(() -> new ResourceAccessException("Film for this id is not found: " + id));
+    @GetMapping("/films/{name}")
+    public ResponseEntity<Film> getFilmByName(@PathVariable(value = "name") String name) throws ResourceAccessException {
+        Film film = (Film) filmRepository.findByName(name)
+                .orElseThrow(() -> new ResourceAccessException("Films for this name are not found: " + name));
         return ResponseEntity.ok().body(film);
     }
 
@@ -40,7 +39,7 @@ public class FilmController {
         return filmRepository.save(film);
     }
 
-    @PutMapping("/filmovi/{id}")
+    @PutMapping("/films/{id}")
     public ResponseEntity<Film> rateMovie(@PathVariable(value = "id") String id, @RequestBody int new_rating)
         throws ResourceAccessException {
         Film film = filmRepository.findById(id)
