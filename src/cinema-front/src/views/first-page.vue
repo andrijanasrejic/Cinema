@@ -20,11 +20,12 @@
 
   
         <section class="section movie-search">
-          <h2>Movie Search</h2>
+          <!--<h2>Movie Search</h2>
           <input type="text" v-model="searchTerm" placeholder="Search for a movie">
           <ul>
             <li v-for="movie in searchResults" :key="movie.id">{{ movie.title }}</li>
-          </ul>
+          </ul>-->
+          <MovieSearchComponent></MovieSearchComponent>
         </section>
   
         <section class="section login-form">
@@ -68,10 +69,11 @@
 
   
   import BestRatedMoviesComponent from '../components/best-rated.vue';
-  
+  import MovieSearchComponent from '../components/film-search.vue';
   export default {
     components:{
-      BestRatedMoviesComponent
+      BestRatedMoviesComponent,
+      MovieSearchComponent
     },
     data() {
       return {

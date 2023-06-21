@@ -1,6 +1,7 @@
 package back.document;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.MongoId;
@@ -12,6 +13,7 @@ import java.util.List;
 public class Film {
     @MongoId
     private String _id;
+    @Indexed(unique = true)
     private String name;
     private int overall_rating;
 

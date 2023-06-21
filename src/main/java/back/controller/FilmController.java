@@ -39,7 +39,7 @@ public class FilmController {
         return filmRepository.save(film);
     }
 
-    @PutMapping("/films/{id}")
+    @PutMapping("/films/nesto/{id}")
     public ResponseEntity<Film> rateMovie(@PathVariable(value = "id") String id, @RequestBody int new_rating)
         throws ResourceAccessException {
         Film film = filmRepository.findById(id)
