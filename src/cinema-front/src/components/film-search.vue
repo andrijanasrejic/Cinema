@@ -23,17 +23,19 @@ export default {
     },
     data() {
         return {
-            showMovie: false
+            showMovie: false,
+            film:{}
         };
     },
-    mounted() {
-        this.fetchMovieByName();
-    },
+    //mounted() {
+    //    this.fetchMovieByName();
+    //},
     methods: {
         fetchMovieByName() {
             this.showMovie = false;
             axios.get('http://127.0.0.1:8081/api/v1/films/' + this.searchTerm).then(response => {
                 this.film = response.data;
+                window.console.log(this.film);
             })
             .catch(error => {
                 console.log("Error when fetching movies:", error);

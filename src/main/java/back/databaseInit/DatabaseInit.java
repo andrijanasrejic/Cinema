@@ -14,7 +14,8 @@ public class DatabaseInit implements CommandLineRunner {
     }
 
     public void run(String... args){
-        Film film1 = new Film("Sekula i njegove zene");
+        Film film1 = new Film("Sekula");
+        film1.addProjection(24);
         filmRepository.save(film1);
     }
 }

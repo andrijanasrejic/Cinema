@@ -19,7 +19,7 @@ public class Film {
 
     List<Integer> ratings;
 
-    List<String> projection_times;
+    List<Integer> projection_times;
 
     public String getId() {
         return _id;
@@ -37,11 +37,11 @@ public class Film {
         return overall_rating;
     }
 
-    public List<String> getProjection_times() {
+    public List<Integer> getProjection_times() {
         return projection_times;
     }
 
-    public void addProjection(String new_time){
+    public void addProjection(Integer new_time){
         this.projection_times.add(new_time);
     }
 
@@ -55,7 +55,7 @@ public class Film {
         super();
 
         this.name = name;
-        this.projection_times = new ArrayList<String>();
+        this.projection_times = new ArrayList<Integer>();
         this.ratings = new ArrayList<Integer>();
         this.overall_rating = 0;
     }

@@ -1,5 +1,4 @@
 package back.controller;
-import java.sql.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +8,7 @@ import back.document.Film;
 import back.repository.FilmRepository;
 import org.springframework.web.client.ResourceAccessException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -33,6 +33,20 @@ public class FilmController {
                 .orElseThrow(() -> new ResourceAccessException("Films for this name are not found: " + name));
         return ResponseEntity.ok().body(film);
     }
+
+    @GetMapping("/films/week/{week}")
+    public ResponseEntity<List<Film>> getFilmByWeek(@PathVariable(value = "week") String week) throws ResourceAccessException {
+        List<Film> result = new ArrayList<Film>();
+        List<Film> films = getAllFilms();
+        for(Film film : films){
+            if(film.getProjection_times().contains(week)){
+                result.add(film);
+            }
+        }
+        return ResponseEntity.ok().body(result);
+    }
+
+
 
     @PostMapping
     public Film createFilm(@RequestBody Film film){
