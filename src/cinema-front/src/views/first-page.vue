@@ -23,17 +23,7 @@
   
         <section class="section login-form">
           <h2>Login</h2>
-          <form>
-            <div>
-              <label for="username">Username:</label>
-              <input type="text" id="username" v-model="loginData.username">
-            </div>
-            <div>
-              <label for="password">Password:</label>
-              <input type="password" id="password" v-model="loginData.password">
-            </div>
-            <button type="submit">Log in</button>
-          </form>
+          <loginComponent></loginComponent>
         </section>
   
         <section class="section login-form">
@@ -64,11 +54,13 @@
   import BestRatedMoviesComponent from '../components/best-rated.vue';
   import MovieSearchComponent from '../components/film-search.vue';
   import repertoireComponent from '../components/weekly-repertoire.vue';
+  import loginComponent from '../components/login.vue';
   export default {
     components:{
       BestRatedMoviesComponent,
       MovieSearchComponent,
-      repertoireComponent
+      repertoireComponent,
+      loginComponent
     },
     data() {
       return {
