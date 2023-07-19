@@ -1,5 +1,5 @@
 <template>
-    
+   <div class="container"> 
     <body>
       <div>
         <NavBarComponent></NavBarComponent>
@@ -9,9 +9,34 @@
       </div>
       </div>
     </body>
+  </div>
 </template>
 
 <style>
+  
+  .container {
+    max-height: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .input-list-container{
+    max-height: 170px;
+    overflow-y: auto;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    position: relative;
+  }
+  .input-container{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
   #app {
     position: relative;
     text-align: center;

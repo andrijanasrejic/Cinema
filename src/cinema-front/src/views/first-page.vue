@@ -6,10 +6,7 @@
       <main>
         
         <section class="section weekly-repertoire">
-          <h2>Weekly Repertoire</h2>
-          <ul>
-            <li v-for="movie in weeklyRepertoire" :key="movie.id">{{ movie.title }}</li>
-          </ul>
+          <repertoireComponent></repertoireComponent>
         </section>
   
         <section class="section best-rated-movies">
@@ -20,11 +17,7 @@
 
   
         <section class="section movie-search">
-          <!--<h2>Movie Search</h2>
-          <input type="text" v-model="searchTerm" placeholder="Search for a movie">
-          <ul>
-            <li v-for="movie in searchResults" :key="movie.id">{{ movie.title }}</li>
-          </ul>-->
+          
           <MovieSearchComponent></MovieSearchComponent>
         </section>
   
@@ -70,10 +63,12 @@
   
   import BestRatedMoviesComponent from '../components/best-rated.vue';
   import MovieSearchComponent from '../components/film-search.vue';
+  import repertoireComponent from '../components/weekly-repertoire.vue';
   export default {
     components:{
       BestRatedMoviesComponent,
-      MovieSearchComponent
+      MovieSearchComponent,
+      repertoireComponent
     },
     data() {
       return {

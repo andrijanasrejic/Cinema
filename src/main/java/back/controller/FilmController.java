@@ -29,8 +29,11 @@ public class FilmController {
 
     @GetMapping("/films/{name}")
     public ResponseEntity<Film> getFilmByName(@PathVariable(value = "name") String name) throws ResourceAccessException {
+        System.out.println(name);
         Film film = (Film) filmRepository.findByName(name)
                 .orElseThrow(() -> new ResourceAccessException("Films for this name are not found: " + name));
+
+        System.out.println(film.getName());
         return ResponseEntity.ok().body(film);
     }
 
@@ -38,11 +41,20 @@ public class FilmController {
     public ResponseEntity<List<Film>> getFilmByWeek(@PathVariable(value = "week") String week) throws ResourceAccessException {
         List<Film> result = new ArrayList<Film>();
         List<Film> films = getAllFilms();
+        int weekInt;
+        try {
+            weekInt = Integer.parseInt(week);
+        }
+        catch (NumberFormatException e) {
+            weekInt = 0;
+        }
         for(Film film : films){
-            if(film.getProjection_times().contains(week)){
+
+            if(film.getProjection_times().contains(weekInt)){
                 result.add(film);
             }
         }
+
         return ResponseEntity.ok().body(result);
     }
 

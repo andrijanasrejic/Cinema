@@ -1,5 +1,6 @@
 <template>
     <h2>Movie Search</h2>
+        <div class="input-container">
         <input type="text" v-model="searchTerm" placeholder="Search for a movie">
         <div class="spacer"></div>
         <button @click="fetchMovieByName">Search</button>
@@ -11,6 +12,7 @@
             </form>
             <button @click="clear">Clear</button>
         </div>
+    </div>
 </template>
 
 <script>
@@ -27,15 +29,12 @@ export default {
             film:{}
         };
     },
-    //mounted() {
-    //    this.fetchMovieByName();
-    //},
     methods: {
         fetchMovieByName() {
             this.showMovie = false;
             axios.get('http://127.0.0.1:8081/api/v1/films/' + this.searchTerm).then(response => {
                 this.film = response.data;
-                window.console.log(this.film);
+                console.log(this.film);
             })
             .catch(error => {
                 console.log("Error when fetching movies:", error);
