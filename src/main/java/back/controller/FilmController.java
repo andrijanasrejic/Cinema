@@ -29,7 +29,6 @@ public class FilmController {
 
     @GetMapping("/films/{name}")
     public ResponseEntity<Film> getFilmByName(@PathVariable(value = "name") String name) throws ResourceAccessException {
-        System.out.println(name);
         Film film = (Film) filmRepository.findByName(name)
                 .orElseThrow(() -> new ResourceAccessException("Films for this name are not found: " + name));
 

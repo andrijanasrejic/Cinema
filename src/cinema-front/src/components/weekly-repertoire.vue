@@ -30,6 +30,7 @@ export default {
             this.showMovies = false;
             axios.get('http://127.0.0.1:8081/api/v1/films/week/' + this.searchTerm).then(response => {
                 this.films = response.data;
+                window.console.log(this.films);
             })
             .catch(error => {
                 console.log("Error when fetching movies:", error);
