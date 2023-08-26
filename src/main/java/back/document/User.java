@@ -11,26 +11,49 @@ public class User {
     private String _id;
 
     @Indexed(unique = true)
-    private String name;
+    private String userName;
 
     @Indexed(unique = true)
     private String email_adress;
 
     private String password;
 
-    public String getName() {
-        return this.name;
+    public User() {
+
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    public String getUserName() {
+        return this.userName;
     }
 
     public String getEmail_adress() {
         return this.email_adress;
     }
 
-    public User(String name, String password, String email_adress){
-        this.name = name;
+    public void setEmail_adress(String email_adress) {
+        this.email_adress = email_adress;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public User(String userName, String password, String email_adress){
+        this.userName = userName;
         this.password = password;
         this.email_adress = email_adress;
 
     }
 
+    @Override
+    public String toString() {
+        return this.userName + " " + this.email_adress;
+    }
 }

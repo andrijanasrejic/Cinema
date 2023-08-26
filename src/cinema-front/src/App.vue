@@ -1,4 +1,6 @@
 <template>
+  <header>
+  </header>
    <div class="container"> 
     <body>
       <div>
@@ -10,10 +12,18 @@
       </div>
     </body>
   </div>
+
+  <footer>
+        <p>&copy; 2023 Andrijana Srejić. All rights reserved.</p>
+      </footer>
 </template>
 
 <style>
-  
+  hr {
+    width:50%;
+    text-align:left;
+    margin-left:0;
+  }
   .container {
     max-height: 1000px;
     margin: 0 auto;
@@ -50,6 +60,89 @@
     transform: translateX(100%);
   }  
 
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .first-page {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    height: 160vh;
+    width: 200vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  header {
+    margin-bottom: 20px;
+  }
+  
+  .nav-links li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .logo img {
+    width: 80px;
+  }
+  
+  main {
+    flex-grow: 1;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  footer {
+    background-color: #141414;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  footer p {
+    color: #fff;
+    font-size: 14px;
+  }
+
 </style>
 
 <script>
@@ -62,7 +155,7 @@ export default {
   name:'App',
   components:{
     NavBarComponent,
-    BestRatedMoviesComponent
+    BestRatedMoviesComponent,
   },
   data () {
     return  {

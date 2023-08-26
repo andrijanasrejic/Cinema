@@ -27,9 +27,7 @@
         
       </main>
   
-      <footer>
-        <p>&copy; 2023 Andrijana Srejić. All rights reserved.</p>
-      </footer>
+   
     </div>
   </template>
   

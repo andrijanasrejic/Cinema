@@ -18,9 +18,9 @@ export default {
             films:[]
         };
     },
-    mounted() {
+    /*mounted() {
         this.fetchMovies();
-    },
+    },*/
     methods: {
         fetchMovies() {
             
@@ -31,7 +31,7 @@ export default {
             .catch(error => {
                 console.log("Error when fetching movies:", error);
             });
-        }
+        },
     }
 };
 </script>

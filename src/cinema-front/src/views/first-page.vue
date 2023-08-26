@@ -8,43 +8,31 @@
         <section class="section weekly-repertoire">
           <repertoireComponent></repertoireComponent>
         </section>
-  
+        <hr>
         <section class="section best-rated-movies">
           <div>
             <BestRatedMoviesComponent></BestRatedMoviesComponent>
           </div>
         </section>
 
-  
+        <hr>
         <section class="section movie-search">
           
-          <MovieSearchComponent></MovieSearchComponent>
+          <MovieSearchComponent :user=false></MovieSearchComponent>
         </section>
-  
-        <section class="section login-form">
+        <hr>
+       <section class="section login-form">
           <h2>Login</h2>
           <loginComponent></loginComponent>
         </section>
-  
-        <section class="section login-form">
-          <h2>Admin login</h2>
-          <form>
-            <div>
-              <label for="username">Username:</label>
-              <input type="text" id="username" v-model="loginData.username">
-            </div>
-            <div>
-              <label for="password">Password:</label>
-              <input type="password" id="password" v-model="loginData.password">
-            </div>
-            <button type="submit">Log in</button>
-          </form>
+        <hr>
+        <section class="section register-form">
+          <h2>Register</h2>
+          <registerComponent></registerComponent>
         </section>
       </main>
   
-      <footer>
-        <p>&copy; 2023 Andrijana Srejić. All rights reserved.</p>
-      </footer>
+      
     </div>
   </template>
   
@@ -55,12 +43,15 @@
   import MovieSearchComponent from '../components/film-search.vue';
   import repertoireComponent from '../components/weekly-repertoire.vue';
   import loginComponent from '../components/login.vue';
+  import registerComponent from '../components/register.vue';
+
   export default {
     components:{
       BestRatedMoviesComponent,
       MovieSearchComponent,
       repertoireComponent,
-      loginComponent
+      loginComponent,
+      registerComponent
     },
     data() {
       return {
