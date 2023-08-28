@@ -1,44 +1,51 @@
 <template>
     <div class="admin-page">
-    
       <main>
-        <section class="section weekly-repertoire">
-          <h2>Weekly Repertoire</h2>
-          <ul>
-            <li v-for="movie in weeklyRepertoire" :key="movie.id">{{ movie.title }}</li>
-          </ul>
-        </section>
-  
-        <section class="section best-rated-movies">
-          <h2>Best Rated Movies</h2>
-          <ul>
-            <li v-for="movie in bestRatedMovies" :key="movie.id">{{ movie.title }}</li>
-          </ul>
-        </section>
-  
-        <section class="section movie-search">
-          <h2>Movie Search</h2>
-          <input type="text" v-model="searchTerm" placeholder="Search for a movie">
-          <ul>
-            <li v-for="movie in searchResults" :key="movie.id">{{ movie.title }}</li>
-          </ul>
-        </section>
-  
-        
-      </main>
-  
+    <div>
+        <BestRatedMoviesComponent></BestRatedMoviesComponent>
+    </div>
+    <hr>
+    <div>
+        <repertoireComponent></repertoireComponent>
+    </div>
+    <hr>
+    <div>
+        <MovieSearchComponent :user=true></MovieSearchComponent>
+    </div>
+  <hr>
+    <div>
+      <addMovieComponent></addMovieComponent>
+    </div>
+
+    <hr>
+    <div class="spacer"></div>
+
+    <div>
+        <logOutComponent></logOutComponent>
+    </div>
+  </main>
+    
+    
    
     </div>
   </template>
   
   <script>
 
-  
+import BestRatedMoviesComponent from '../components/best-rated.vue';
+import MovieSearchComponent from '../components/film-search.vue';
+import repertoireComponent from '../components/weekly-repertoire.vue';
+import addMovieComponent from '../components/add-movie.vue';
+import logOutComponent from '../components/log-out.vue';
 
   export default {
     name:'adminPageVue',
     components: {
-        
+     BestRatedMoviesComponent,
+     MovieSearchComponent,
+     repertoireComponent,
+     addMovieComponent,
+     logOutComponent
     },
     data() {
       return {

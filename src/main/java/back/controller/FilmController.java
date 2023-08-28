@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import back.document.Film;
 import back.repository.FilmRepository;
 import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +31,13 @@ public class FilmController {
 
     @GetMapping("/films/{name}")
     public ResponseEntity<Film> getFilmByName(@PathVariable(value = "name") String name) throws ResourceAccessException {
-        Film film = (Film) filmRepository.findByName(name)
-                .orElseThrow(() -> new ResourceAccessException("Films for this name are not found: " + name));
+        Film film;
+        try {
+          film = (Film) filmRepository.findByName(name);
+        } catch (Exception e){
+            return (ResponseEntity<Film>) ResponseEntity.notFound().header("Film not found");
+        }
+
 
         System.out.println(film.getName());
         return ResponseEntity.ok().body(film);
@@ -59,16 +66,23 @@ public class FilmController {
 
 
 
-    @PostMapping
-    public Film createFilm(@RequestBody Film film){
+    @PostMapping("/films/upload/{name}")
+    public Film addFilm(@PathVariable(value = "name") String name) {
+        Film film = new Film(name);
+
         return filmRepository.save(film);
     }
 
-    @PutMapping("/films/nesto/{id}")
-    public ResponseEntity<Film> rateMovie(@PathVariable(value = "id") String id, @RequestBody int new_rating)
+    @PutMapping("/films/updateFilm/{name}/{rating}")
+    public ResponseEntity<Film> rateMovie(@PathVariable(value = "name") String name, @PathVariable(value = "rating") int new_rating)
         throws ResourceAccessException {
-        Film film = filmRepository.findById(id)
-                .orElseThrow(() -> new ResourceAccessException("Film for this id is not found: " + id));
+        Film film;
+        try {
+            film = filmRepository.findByName(name);
+        }catch (Exception e){
+            return (ResponseEntity<Film>) ResponseEntity.notFound().header("Film not found");
+        }
+
         film.rateMovie(new_rating);
         final Film updateFilm = filmRepository.save(film);
         return ResponseEntity.ok(updateFilm);

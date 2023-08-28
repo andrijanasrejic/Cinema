@@ -28,18 +28,26 @@ export default {
     },
     methods: {
      
-      login() {
+      async login() {
       try {
-        const response = axios.get('http://localhost:8081/login/' + this.username + '/' + this.password);
+        const response = await axios.get('http://localhost:8081/login/' + this.username + '/' + this.password);
 
         console.log('Login successful:', response.data);
         alert('Login successful');
-       
-        this.$router.push(`/user-page/${this.username}`);
 
+        if(response.data.admin){
+          this.$router.push(`/admin-page/${this.username}`);  
+        }
+        else {
+          this.$router.push(`/user-page/${this.username}`);
+        }
+        
       } catch (error) {
         console.error("An error occurred:", error);
       }
+
+      this.username = "";
+      this.password = "";
     }
       
     }

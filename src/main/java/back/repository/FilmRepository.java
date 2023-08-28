@@ -12,5 +12,5 @@ import java.util.function.Function;
 
 @Repository
 public interface FilmRepository extends MongoRepository<Film, String> {
-    Optional<Object> findByName(String name);
+    Film findByName(String name);
 }

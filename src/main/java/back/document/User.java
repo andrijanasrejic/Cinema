@@ -18,6 +18,8 @@ public class User {
 
     private String password;
 
+    private boolean admin = false;
+
     public User() {
 
     }
@@ -33,6 +35,10 @@ public class User {
         return this.email_adress;
     }
 
+    public boolean isAdmin() {
+        return admin;
+    }
+
     public void setEmail_adress(String email_adress) {
         this.email_adress = email_adress;
     }
@@ -43,6 +49,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setAdmin() {
+        this.admin = !this.admin;
     }
 
     public User(String userName, String password, String email_adress){

@@ -11,6 +11,11 @@
     <div>
         <MovieSearchComponent :user=true></MovieSearchComponent>
     </div>
+    <hr>
+
+    <div>
+        <logOutComponent></logOutComponent>
+    </div>
     </main>
     
     
@@ -20,6 +25,7 @@
     import BestRatedMoviesComponent from '../components/best-rated.vue';
     import MovieSearchComponent from '../components/film-search.vue';
     import repertoireComponent from '../components/weekly-repertoire.vue';
+    import logOutComponent from '../components/log-out.vue';
 
     export default {
         name:'userPage',

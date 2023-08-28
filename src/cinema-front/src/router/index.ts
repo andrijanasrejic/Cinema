@@ -16,7 +16,7 @@ const router = createRouter({
     },
     
     {
-      path:'/admin-page',
+      path:'/admin-page/:userName',
       name:'adminPage',
       component:adminPageVue
     },

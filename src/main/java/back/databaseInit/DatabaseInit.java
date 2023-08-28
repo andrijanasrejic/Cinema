@@ -1,6 +1,7 @@
 package back.databaseInit;
 
 import back.document.Film;
+import back.document.User;
 import back.repository.FilmRepository;
 import back.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -16,12 +17,14 @@ public class DatabaseInit implements CommandLineRunner {
     }
 
     public void run(String... args){
-        /*
-        filmRepository.deleteAll();
-        userRepository.deleteAll();
 
-         */
-        Film film = new Film("Mrk");
-        filmRepository.save(film);
+        //filmRepository.deleteAll();
+        //userRepository.deleteAll();
+
+
+        //User admin = new User("Andrijana", "123", "andrijana@srejic.com");
+        //admin.setAdmin();
+        //userRepository.save(admin);
+
     }
 }

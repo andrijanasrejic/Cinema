@@ -33,10 +33,10 @@ data() {
   };
 },
 methods: {
-    register() {
+    async register() {
             try {
                 
-            const response = axios.post('http://localhost:8081/register' + '/' + this.username + '/' + this.password + '/' + this.email);
+            const response = await axios.post('http://localhost:8081/register' + '/' + this.username + '/' + this.password + '/' + this.email);
              // Handle success response
             console.log('Registration successful:', response.data);
             alert('Registration successful');

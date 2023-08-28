@@ -17,6 +17,7 @@ public class Film {
     private String name;
     private int overall_rating;
 
+    private byte[] poster;
     List<Integer> ratings;
 
     List<Integer> projection_times;
@@ -37,6 +38,14 @@ public class Film {
         return overall_rating;
     }
 
+    public byte[] getPoster() {
+        return poster;
+    }
+
+    public void setPoster(byte[] poster) {
+        this.poster = poster;
+    }
+
     public List<Integer> getProjection_times() {
         return projection_times;
     }
@@ -50,6 +59,8 @@ public class Film {
         // overall_rating is the mean of all the ratings
         this.overall_rating = this.ratings.stream().reduce(0, Integer::sum)/this.ratings.size();
     }
+
+
 
     public Film(String name) {
         super();

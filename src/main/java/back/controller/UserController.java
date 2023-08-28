@@ -39,16 +39,15 @@ public class UserController {
     }
 
     @GetMapping("/login/{name}/{password}")
-    public ResponseEntity<String> login(@PathVariable(value = "name") String name, @PathVariable(value = "password") String password){
+    public ResponseEntity<User> login(@PathVariable(value = "name") String name, @PathVariable(value = "password") String password){
         try {
             User user = userRepository.findByUserName(name);
             if(!Objects.equals(user.getPassword(), password)){
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Authentication failed!");
+                return (ResponseEntity<User>) ResponseEntity.notFound().header("Authentification failed");
             }
-            System.out.println(user);
-            return ResponseEntity.ok().body("Login successful");
+            return ResponseEntity.ok(user);
         } catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Authentication failed!");
+            return (ResponseEntity<User>) ResponseEntity.notFound().header("Authentification failed");
         }
     }
 
