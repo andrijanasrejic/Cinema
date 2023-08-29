@@ -82,7 +82,6 @@ public class FilmController {
         }catch (Exception e){
             return (ResponseEntity<Film>) ResponseEntity.notFound().header("Film not found");
         }
-
         film.rateMovie(new_rating);
         final Film updateFilm = filmRepository.save(film);
         return ResponseEntity.ok(updateFilm);

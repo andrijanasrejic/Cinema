@@ -1,21 +1,26 @@
 <template>
     <main>
-    <div>
-        <BestRatedMoviesComponent></BestRatedMoviesComponent>
-    </div>
-    <hr>
-    <div>
-        <repertoireComponent></repertoireComponent>
-    </div>
-    <hr>
-    <div>
-        <MovieSearchComponent :user=true></MovieSearchComponent>
-    </div>
-    <hr>
+        <div>
+            <NavBarComponent></NavBarComponent>
+        </div>
 
-    <div>
-        <logOutComponent></logOutComponent>
-    </div>
+        <div>
+            <BestRatedMoviesComponent></BestRatedMoviesComponent>
+        </div>
+        <hr>
+        <div>
+            <repertoireComponent></repertoireComponent>
+        </div>
+        <hr>
+        <div>
+            <MovieSearchComponent :user=true></MovieSearchComponent>
+        </div>
+        <hr>
+        <div class="spacer"></div>
+
+        <div>
+            <logOutComponent></logOutComponent>
+        </div>
     </main>
     
     
@@ -33,7 +38,8 @@
         components: {
             BestRatedMoviesComponent,
             MovieSearchComponent,
-            repertoireComponent
+            repertoireComponent,
+            logOutComponent
         }
     }
 

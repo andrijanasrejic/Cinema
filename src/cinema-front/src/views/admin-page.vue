@@ -1,28 +1,31 @@
 <template>
     <div class="admin-page">
       <main>
-    <div>
-        <BestRatedMoviesComponent></BestRatedMoviesComponent>
-    </div>
-    <hr>
-    <div>
+        <div>
+          <NavBarComponent></NavBarComponent>
+        </div>
+      <div>
+          <BestRatedMoviesComponent></BestRatedMoviesComponent>
+      </div>
+      <hr>
+      <div>
         <repertoireComponent></repertoireComponent>
-    </div>
-    <hr>
-    <div>
+      </div>
+      <hr>
+      <div>
         <MovieSearchComponent :user=true></MovieSearchComponent>
-    </div>
-  <hr>
-    <div>
-      <addMovieComponent></addMovieComponent>
-    </div>
-
+      </div>
     <hr>
-    <div class="spacer"></div>
+      <div>
+        <addMovieComponent></addMovieComponent>
+      </div>
 
-    <div>
+      <hr>
+      <div class="spacer"></div>
+
+      <div>
         <logOutComponent></logOutComponent>
-    </div>
+      </div>
   </main>
     
     
@@ -49,35 +52,10 @@ import logOutComponent from '../components/log-out.vue';
     },
     data() {
       return {
-        weeklyRepertoire: [
-          { id: 1, title: "Movie 1" },
-          { id: 2, title: "Movie 2" },
-          { id: 3, title: "Movie 3" }
-        ],
-        bestRatedMovies: [
-          { id: 4, title: "Movie 4" },
-          { id: 5, title: "Movie 5" },
-          { id: 6, title: "Movie 6" }
-        ],
-        searchTerm: "",
-        movies: [
-          { id: 7, title: "Movie 7" },
-          { id: 8, title: "Movie 8" },
-          { id: 9, title: "Movie 9" }
-        ]
+          
       };
     },
-    computed: {
-      searchResults() {
-        if (this.searchTerm) {
-          const searchTermLowerCase = this.searchTerm.toLowerCase();
-          return this.movies.filter(movie =>
-            movie.title.toLowerCase().includes(searchTermLowerCase)
-          );
-        }
-        return [];
-      }
-    }
+       
   };
   </script>
   

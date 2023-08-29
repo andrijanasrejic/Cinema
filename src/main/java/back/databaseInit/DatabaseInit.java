@@ -21,10 +21,10 @@ public class DatabaseInit implements CommandLineRunner {
         //filmRepository.deleteAll();
         //userRepository.deleteAll();
 
-
-        //User admin = new User("Andrijana", "123", "andrijana@srejic.com");
-        //admin.setAdmin();
-        //userRepository.save(admin);
-
+        /*
+        User admin = new User("Andrijana", "123", "andrijana@srejic.com");
+        admin.setAdmin();
+        userRepository.save(admin);
+        */
     }
 }

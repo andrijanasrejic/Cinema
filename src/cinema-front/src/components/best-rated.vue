@@ -18,9 +18,9 @@ export default {
             films:[]
         };
     },
-    /*mounted() {
+    mounted() {
         this.fetchMovies();
-    },*/
+    },
     methods: {
         fetchMovies() {
             

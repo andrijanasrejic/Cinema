@@ -15,11 +15,12 @@ public class Film {
     private String _id;
     @Indexed(unique = true)
     private String name;
-    private int overall_rating;
+    private float overall_rating;
 
     private byte[] poster;
     List<Integer> ratings;
 
+    // Repertoire list
     List<Integer> projection_times;
 
     public String getId() {
@@ -34,8 +35,8 @@ public class Film {
         this.name = name;
     }
 
-    public int getRating() {
-        return overall_rating;
+    public float getRating() {
+        return this.overall_rating;
     }
 
     public byte[] getPoster() {
@@ -56,8 +57,9 @@ public class Film {
 
     public void rateMovie(int rating){
         this.ratings.add(rating);
+
         // overall_rating is the mean of all the ratings
-        this.overall_rating = this.ratings.stream().reduce(0, Integer::sum)/this.ratings.size();
+        this.overall_rating = (float) this.ratings.stream().reduce(0, Integer::sum) /this.ratings.toArray().length;
     }
 
 
