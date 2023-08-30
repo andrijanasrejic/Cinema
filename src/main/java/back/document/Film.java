@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class Film {
     List<Integer> ratings;
 
     // Repertoire list
-    List<Integer> projection_times;
+    List<LocalDateTime> projection_times;
 
     public String getId() {
         return _id;
@@ -47,11 +48,11 @@ public class Film {
         this.poster = poster;
     }
 
-    public List<Integer> getProjection_times() {
+    public List<LocalDateTime> getProjection_times() {
         return projection_times;
     }
 
-    public void addProjection(Integer new_time){
+    public void addProjection(LocalDateTime new_time){
         this.projection_times.add(new_time);
     }
 
@@ -68,7 +69,7 @@ public class Film {
         super();
 
         this.name = name;
-        this.projection_times = new ArrayList<Integer>();
+        this.projection_times = new ArrayList<LocalDateTime>();
         this.ratings = new ArrayList<Integer>();
         this.overall_rating = 0;
     }

@@ -1,9 +1,6 @@
 <template>
     <h2>Weekly Repertoire</h2>
-    <div class="input-list-container">
-        <input type="text" v-model="searchTerm" placeholder="Enter week">
-        <div class="spacer"></div>
-        <button @click="fetchMoviesByWeek">Search</button>
+    <div class="list-container">
         <ul>
             <li v-for="film in films" :key="film.id">{{ film.name }}</li>
         </ul>
@@ -28,7 +25,7 @@ export default {
     methods: {
         fetchMoviesByWeek() {
             this.showMovies = false;
-            axios.get('http://127.0.0.1:8081/api/v1/films/week/' + this.searchTerm).then(response => {
+            axios.get('http://127.0.0.1:8081/api/v1/films/week').then(response => {
                 this.films = response.data;
                 window.console.log(this.films);
             })
@@ -41,7 +38,10 @@ export default {
         clear(){
             this.showMovies = false;
             this.searchResults = "";
-        }
+        },
+    },
+    mounted() {
+        this.fetchMoviesByWeek();
     }
 }
 </script>

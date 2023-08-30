@@ -4,9 +4,6 @@
         <div>
           <NavBarComponent></NavBarComponent>
         </div>
-      <div>
-          <BestRatedMoviesComponent></BestRatedMoviesComponent>
-      </div>
       <hr>
       <div>
         <repertoireComponent></repertoireComponent>
@@ -18,6 +15,14 @@
     <hr>
       <div>
         <addMovieComponent></addMovieComponent>
+      </div>
+
+      <hr>
+      <div class="spacer"></div>
+
+      
+      <div>
+        <projectionTime></projectionTime>
       </div>
 
       <hr>
@@ -40,6 +45,7 @@ import MovieSearchComponent from '../components/film-search.vue';
 import repertoireComponent from '../components/weekly-repertoire.vue';
 import addMovieComponent from '../components/add-movie.vue';
 import logOutComponent from '../components/log-out.vue';
+import projectionTime from '../components/add-projection.vue';
 
   export default {
     name:'adminPageVue',
@@ -48,7 +54,8 @@ import logOutComponent from '../components/log-out.vue';
      MovieSearchComponent,
      repertoireComponent,
      addMovieComponent,
-     logOutComponent
+     logOutComponent,
+     projectionTime
     },
     data() {
       return {

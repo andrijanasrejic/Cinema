@@ -1,15 +1,19 @@
 package back.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import back.document.Film;
 import back.repository.FilmRepository;
 import org.springframework.web.client.ResourceAccessException;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,26 +47,30 @@ public class FilmController {
         return ResponseEntity.ok().body(film);
     }
 
-    @GetMapping("/films/week/{week}")
-    public ResponseEntity<List<Film>> getFilmByWeek(@PathVariable(value = "week") String week) throws ResourceAccessException {
-        List<Film> result = new ArrayList<Film>();
+    @GetMapping("/films/week")
+    public ResponseEntity<List<Film>> getFilmByWeek() {
+        List<Film> result = new ArrayList<>();
         List<Film> films = getAllFilms();
-        int weekInt;
-        try {
-            weekInt = Integer.parseInt(week);
-        }
-        catch (NumberFormatException e) {
-            weekInt = 0;
-        }
-        for(Film film : films){
 
-            if(film.getProjection_times().contains(weekInt)){
-                result.add(film);
+        LocalDateTime now = LocalDateTime.now(); // Current date and time
+        LocalDateTime startOfWeek = now.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY)).with(LocalTime.MIN);
+        LocalDateTime endOfWeek = now.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY)).with(LocalTime.MAX);
+
+        for (Film film : films) {
+            if(film.getProjection_times() != null) {
+                for (LocalDateTime projectionTime : film.getProjection_times()) {
+                    if (projectionTime.isAfter(startOfWeek) && projectionTime.isBefore(endOfWeek)) {
+                        result.add(film);
+                        break; // No need to check further projection_times for this film
+                    }
+                }
             }
         }
 
         return ResponseEntity.ok().body(result);
     }
+
+
 
 
 
@@ -85,5 +93,26 @@ public class FilmController {
         film.rateMovie(new_rating);
         final Film updateFilm = filmRepository.save(film);
         return ResponseEntity.ok(updateFilm);
+    }
+
+    @PutMapping("/films/projection/{name}/{time}")
+    public ResponseEntity<String> addProjectionTime(@PathVariable(value = "name") String name, @PathVariable(value = "time") String time){
+        System.out.println(name);
+        Film film;
+
+        try {
+            film = filmRepository.findByName(name);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Film not found!");
+        }
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(time, formatter);
+
+        film.addProjection(dateTime);
+
+        filmRepository.save(film);
+
+        return ResponseEntity.ok("Added new projection");
     }
 }
