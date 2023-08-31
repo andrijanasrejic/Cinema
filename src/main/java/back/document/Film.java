@@ -16,13 +16,13 @@ public class Film {
     private String _id;
     @Indexed(unique = true)
     private String name;
-    private float overall_rating;
+    private float overall_rating = 0;
 
     private byte[] poster;
     List<Integer> ratings;
 
     // Repertoire list
-    List<LocalDateTime> projection_times;
+    List<Projection> projections;
 
     public String getId() {
         return _id;
@@ -48,12 +48,12 @@ public class Film {
         this.poster = poster;
     }
 
-    public List<LocalDateTime> getProjection_times() {
-        return projection_times;
+    public List<Projection> getProjection() {
+        return projections;
     }
 
-    public void addProjection(LocalDateTime new_time){
-        this.projection_times.add(new_time);
+    public void addProjection(Projection newProjection){;
+        this.projections.add(newProjection);
     }
 
     public void rateMovie(int rating){
@@ -66,15 +66,15 @@ public class Film {
 
 
     public Film(String name) {
-        super();
 
         this.name = name;
-        this.projection_times = new ArrayList<LocalDateTime>();
+        this.projections = new ArrayList<Projection>();
         this.ratings = new ArrayList<Integer>();
-        this.overall_rating = 0;
     }
 
     public Film(){
-        super();
+        this.name = "";
+        this.projections = new ArrayList<Projection>();
+        this.ratings = new ArrayList<Integer>();
     }
 }

@@ -1,5 +1,6 @@
 package back.controller;
 
+import back.document.Projection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,8 +58,9 @@ public class FilmController {
         LocalDateTime endOfWeek = now.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY)).with(LocalTime.MAX);
 
         for (Film film : films) {
-            if(film.getProjection_times() != null) {
-                for (LocalDateTime projectionTime : film.getProjection_times()) {
+            if(film.getProjection() != null) {
+                for (Projection projection : film.getProjection()) {
+                    LocalDateTime projectionTime = projection.getTime();
                     if (projectionTime.isAfter(startOfWeek) && projectionTime.isBefore(endOfWeek)) {
                         result.add(film);
                         break; // No need to check further projection_times for this film
@@ -70,10 +72,7 @@ public class FilmController {
         return ResponseEntity.ok().body(result);
     }
 
-
-
-
-
+    
     @PostMapping("/films/upload/{name}")
     public Film addFilm(@PathVariable(value = "name") String name) {
         Film film = new Film(name);
@@ -95,9 +94,11 @@ public class FilmController {
         return ResponseEntity.ok(updateFilm);
     }
 
-    @PutMapping("/films/projection/{name}/{time}")
-    public ResponseEntity<String> addProjectionTime(@PathVariable(value = "name") String name, @PathVariable(value = "time") String time){
-        System.out.println(name);
+    @PutMapping("/films/projection/{name}/{time}/{size}/{price}")
+    public ResponseEntity<String> addProjectionTime(@PathVariable(value = "name") String name,
+                                                    @PathVariable(value = "time") String time,
+                                                    @PathVariable(value = "size") Integer size,
+                                                    @PathVariable(value = "price") Float price){
         Film film;
 
         try {
@@ -105,11 +106,16 @@ public class FilmController {
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Film not found!");
         }
-
+        System.out.println(film.getName());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime dateTime = LocalDateTime.parse(time, formatter);
 
-        film.addProjection(dateTime);
+        Projection projection = new Projection(dateTime, name, price, size);
+        System.out.println(projection.getTime());
+
+
+        film.addProjection(projection);
+
 
         filmRepository.save(film);
 
