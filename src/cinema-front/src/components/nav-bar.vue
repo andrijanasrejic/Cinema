@@ -12,6 +12,24 @@
 </template>
 
 
+<script>
+
+export default {
+        name: 'NavBarComponent',
+        props: ['user'],
+        components:{
+
+        },
+        data (){
+            return  {
+
+            }
+        },
+    }
+
+</script>
+
+
 <style scoped>
 .navbar {
     background-color: #000;
@@ -37,18 +55,3 @@
 }
 </style>
 
-<script>
-
-export default {
-        name: 'NavBarComponent',
-        components:{
-
-        },
-        data (){
-            return  {
-
-            }
-        },
-    }
-
-</script>

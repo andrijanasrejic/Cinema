@@ -31,4 +31,8 @@ public class Projection {
     public String getFilmName() {
         return filmName;
     }
+
+    public void setTheaterSize(int theaterSize) {
+        this.theaterSize = theaterSize;
+    }
 }

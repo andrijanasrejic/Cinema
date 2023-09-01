@@ -10,6 +10,7 @@ import back.document.Film;
 import back.repository.FilmRepository;
 import org.springframework.web.client.ResourceAccessException;
 
+import java.nio.file.Path;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -49,8 +50,8 @@ public class FilmController {
     }
 
     @GetMapping("/films/week")
-    public ResponseEntity<List<Film>> getFilmByWeek() {
-        List<Film> result = new ArrayList<>();
+    public ResponseEntity<List<Projection>> getFilmByWeek() {
+        List<Projection> result = new ArrayList<>();
         List<Film> films = getAllFilms();
 
         LocalDateTime now = LocalDateTime.now(); // Current date and time
@@ -62,7 +63,7 @@ public class FilmController {
                 for (Projection projection : film.getProjection()) {
                     LocalDateTime projectionTime = projection.getTime();
                     if (projectionTime.isAfter(startOfWeek) && projectionTime.isBefore(endOfWeek)) {
-                        result.add(film);
+                        result.add(projection);
                         break; // No need to check further projection_times for this film
                     }
                 }
@@ -70,6 +71,24 @@ public class FilmController {
         }
 
         return ResponseEntity.ok().body(result);
+    }
+
+    @PutMapping("/films/week/{name}/{time}/{size}")
+    public ResponseEntity<String>handleTranscation(@PathVariable(value = "name") String name,
+    @PathVariable(value = "time") String time, @PathVariable(value = "size") int size){
+        Film film = filmRepository.findByName(name);
+
+        LocalDateTime dateTime = LocalDateTime.parse(time);
+        for(Projection projection : film.getProjection()){
+            if(projection.getTime().toString().equals(dateTime.toString())){
+                projection.setTheaterSize(size);
+                break;
+            }
+        }
+
+        filmRepository.save(film);
+
+        return ResponseEntity.ok().body("Transaction successful");
     }
 
     

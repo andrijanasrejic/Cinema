@@ -9,7 +9,7 @@
         </div>
         <hr>
         <div>
-            <repertoireComponent></repertoireComponent>
+            <repertoireComponent logedIn="true" @ticketBought="handleTransaction"></repertoireComponent>
         </div>
         <hr>
         <div>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+    import axios from 'axios';
     import BestRatedMoviesComponent from '../components/best-rated.vue';
     import MovieSearchComponent from '../components/film-search.vue';
     import repertoireComponent from '../components/weekly-repertoire.vue';
@@ -34,12 +35,23 @@
 
     export default {
         name:'userPage',
-        props: ['userName'], 
+        props: ['userName'],
         components: {
             BestRatedMoviesComponent,
             MovieSearchComponent,
             repertoireComponent,
             logOutComponent
+        },
+        methods : {
+            async handleTransaction(film) {
+                const response = await axios.put('http://localhost:8081/user/projection/'
+            +   film.filmName + "/"
+            +   film.projectionTime + "/"
+            +   film.theaterSize + "/"
+            +   film.ticketPrice);
+
+                console.log(response);
+            }
         }
     }
 

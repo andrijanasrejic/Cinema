@@ -63,3 +63,7 @@ header {
     color: #fff;
     font-size: 14px;
   }
+
+  .film-item {
+    cursor: pointer;
+  }

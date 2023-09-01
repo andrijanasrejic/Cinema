@@ -4,6 +4,9 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Document(collection = "database_sequence")
 public class User {
 
@@ -20,8 +23,18 @@ public class User {
 
     private boolean admin = false;
 
-    public User() {
+    List<Projection> projections;
 
+    public User() {
+        this.projections = new ArrayList<Projection>();
+    }
+
+    public List<Projection> getProjections() {
+        return projections;
+    }
+
+    public void addProjection(Projection newProjection){;
+        this.projections.add(newProjection);
     }
 
     public String getPassword() {
@@ -59,6 +72,7 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.email_adress = email_adress;
+        this.projections = new ArrayList<Projection>();
 
     }
 
