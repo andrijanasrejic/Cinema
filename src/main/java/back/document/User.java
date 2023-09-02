@@ -23,18 +23,18 @@ public class User {
 
     private boolean admin = false;
 
-    List<Projection> projections;
+    List<Projection> reservedProjections;
 
     public User() {
-        this.projections = new ArrayList<Projection>();
+        this.reservedProjections = new ArrayList<Projection>();
     }
 
-    public List<Projection> getProjections() {
-        return projections;
+    public List<Projection> getReservedProjections() {
+        return reservedProjections;
     }
 
     public void addProjection(Projection newProjection){;
-        this.projections.add(newProjection);
+        this.reservedProjections.add(newProjection);
     }
 
     public String getPassword() {
@@ -72,7 +72,7 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.email_adress = email_adress;
-        this.projections = new ArrayList<Projection>();
+        this.reservedProjections = new ArrayList<Projection>();
 
     }
 

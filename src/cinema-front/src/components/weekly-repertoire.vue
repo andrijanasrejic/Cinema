@@ -20,7 +20,7 @@ import axios from "axios";
 export default {
     name: 'repertoireComponent',
     props: {logedIn: {
-        default: 'false'
+        default: false
     }},
     components:{
 
@@ -66,6 +66,7 @@ export default {
             + film.theaterSize);
 
             console.log(response);
+            this.$emit("ticketBought", film);
         },
         clear(){
             this.showMovies = false;

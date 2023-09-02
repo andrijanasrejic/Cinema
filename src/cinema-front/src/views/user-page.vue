@@ -1,7 +1,7 @@
 <template>
     <main>
         <div>
-            <NavBarComponent></NavBarComponent>
+            <NavBarComponent :user=userName></NavBarComponent>
         </div>
 
         <div>
@@ -46,7 +46,7 @@
             async handleTransaction(film) {
                 const response = await axios.put('http://localhost:8081/user/projection/'
             +   film.filmName + "/"
-            +   film.projectionTime + "/"
+            +   film.time + "/"
             +   film.theaterSize + "/"
             +   film.ticketPrice);
 

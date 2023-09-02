@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -68,8 +69,7 @@ public class UserController {
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Film not found!");
         }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime dateTime = LocalDateTime.parse(time, formatter);
+        LocalDateTime dateTime = LocalDateTime.parse(time);
 
         Projection projection = new Projection(dateTime, name, price, size);
         System.out.println(projection.getTime());
@@ -78,6 +78,14 @@ public class UserController {
         userRepository.save(user);
 
         return ResponseEntity.ok("Added new projection");
+    }
+
+    @GetMapping("/user/projections/{name}")
+    public List<Projection> getProjections(@PathVariable(value = "name") String name){
+
+        User user = userRepository.findByUserName(name);
+
+        return user.getReservedProjections();
     }
 
 }

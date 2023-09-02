@@ -11,11 +11,12 @@
           <output>Overall rating: {{ film.rating }}</output>
 
           <div class="spacer"></div>
-          <label for="userRating">Your Rating:</label>
-          <input type="number" v-model="userRating" min="1" max="5">
+          <template v-if="user">
+            <label for="userRating">Your Rating:</label>
+            <input type="number" v-model="userRating" min="1" max="5">
 
-        <button @click.prevent="submitRating">Submit Rating</button>
-
+            <button @click.prevent="submitRating">Submit Rating</button>
+         </template>
         </form>
         <button @click.prevent="clear">Clear</button>
       </div>

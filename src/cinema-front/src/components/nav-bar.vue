@@ -2,10 +2,10 @@
     <nav class="nav-bar">      
       <ul class="nav-list">
         <li class="nav-item">
-          <router-link to="/movies" class="nav-link">Movies</router-link>
+          <span @click="moviePage" class="nav-link">Movies</span>
         </li>
         <li class="nav-item">
-          <router-link to="/tickets" class="nav-link">Tickets</router-link>
+          <span @click="ticketPage" class="nav-link">Tickets</span>
         </li>
       </ul>
     </nav>
@@ -16,7 +16,6 @@
 
 export default {
         name: 'NavBarComponent',
-        props: ['user'],
         components:{
 
         },
@@ -25,6 +24,25 @@ export default {
 
             }
         },
+        methods: {
+          ticketPage(){
+              const userName = this.$router.currentRoute._value.params.userName
+              if(!userName){
+                alert("Log in for this feature");
+                return;
+              }
+
+              this.$router.push(`/tickets/${userName}`);
+          },
+          moviePage(){
+            const userName = this.$router.currentRoute._value.params.userName
+            this.$router.push(`/movies/${userName}`);
+
+          }
+        },
+        mounted() {
+          console.log(this.user);
+        }
     }
 
 </script>

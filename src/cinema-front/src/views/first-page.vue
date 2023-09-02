@@ -6,7 +6,7 @@
       <main>
         
         <section class="section weekly-repertoire">
-          <repertoireComponent></repertoireComponent>
+          <repertoireComponent ></repertoireComponent>
         </section>
         <hr>
         <section class="section best-rated-movies">

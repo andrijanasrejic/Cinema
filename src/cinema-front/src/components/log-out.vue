@@ -8,6 +8,7 @@
 <script>
 export default {
     name: 'logOutComponent',
+    props: ['user'],
     methods: {
         logOut() {
             this.$router.push('/');

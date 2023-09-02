@@ -4,6 +4,8 @@ import Vue from 'vue';
 import firstPageVue from '../views/first-page.vue';
 import adminPageVue from '../views/admin-page.vue';
 import userPage from '../views/user-page.vue';
+import ticketPage from '../views/ticket-page.vue';
+import moviePage from '../views/movies-page.vue';
 
 const router = createRouter({
 
@@ -24,6 +26,18 @@ const router = createRouter({
       path:'/user-page/:userName',
       name:'user-page',
       component: userPage,
+      props: true
+    },
+    {
+      path:'/tickets/:userName',
+      name:'ticket-page',
+      component: ticketPage,
+      props: true
+    },
+    {
+      path:'/movies/:userName',
+      name:'movie-page',
+      component: moviePage,
       props: true
     }
   ]
