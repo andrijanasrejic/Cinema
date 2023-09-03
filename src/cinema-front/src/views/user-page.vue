@@ -45,6 +45,7 @@
         methods : {
             async handleTransaction(film) {
                 const response = await axios.put('http://localhost:8081/user/projection/'
+            +   this.userName + "/"
             +   film.filmName + "/"
             +   film.time + "/"
             +   film.theaterSize + "/"

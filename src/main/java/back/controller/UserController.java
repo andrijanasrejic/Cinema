@@ -57,22 +57,22 @@ public class UserController {
     }
 
 
-    @PutMapping("/user/projection/{name}/{time}/{size}/{price}")
-    public ResponseEntity<String> addProjectionTime(@PathVariable(value = "name") String name,
+    @PutMapping("/user/projection/{userName}/{name}/{time}/{size}/{price}")
+    public ResponseEntity<String> addProjectionTime(@PathVariable(value = "userName") String userName,
+                                                    @PathVariable(value = "name") String name,
                                                     @PathVariable(value = "time") String time,
                                                     @PathVariable(value = "size") Integer size,
                                                     @PathVariable(value = "price") Float price){
         User user;
 
         try {
-            user = userRepository.findByUserName(name);
+            user = userRepository.findByUserName(userName);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Film not found!");
         }
         LocalDateTime dateTime = LocalDateTime.parse(time);
 
         Projection projection = new Projection(dateTime, name, price, size);
-        System.out.println(projection.getTime());
 
         user.addProjection(projection);
         userRepository.save(user);
@@ -82,7 +82,7 @@ public class UserController {
 
     @GetMapping("/user/projections/{name}")
     public List<Projection> getProjections(@PathVariable(value = "name") String name){
-
+        System.out.println(name);
         User user = userRepository.findByUserName(name);
 
         return user.getReservedProjections();
