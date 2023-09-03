@@ -1,21 +1,23 @@
 <template>
     <h2>Add a new projection</h2>
 
-    <form @submit.prevent="uploadProjectionTime">
-        <input type="text" v-model="filmName" placeholder="Movie name" required="true">
-        <div>
+    <form @submit.prevent="uploadProjectionTime"  class="projection-form">
+        <div class="input-group">
+            <input type="text" v-model="filmName" placeholder="Movie name" required="true">
+        </div>
+        <div class="input-group">
             <input type="text" v-model="theaterSize" placeholder="Theater size" required="true">
         </div>
 
-        <div>
+        <div class="input-group">
             <input type="text" v-model="ticketPrice" placeholder="Ticket price" required="true">
         </div>
 
-        <div>
-            <label for="projectionTime">Projection time:</label>
+        <div class="input-group">
             <flat-pickr
                 v-model="projectionTime"
                 :config="flatpickrConfig"
+                placeholder="Time"
             ></flat-pickr>
         </div>
        
@@ -49,14 +51,6 @@ export default {
             console.log("Film:", this.searchTerm);
             console.log("Projection time:", this.projectionTime);
 
-            const projection = {
-                "filmName": this.filmName,
-                "projectionTime": this.projectionTime,
-                "theaterSize": this.theaterSize,
-                "ticketPrice": this.ticketPrice
-            }
-            
-
             const response = await axios.put('http://localhost:8081/api/v1/films/projection/'
             + this.filmName + "/"
             + this.projectionTime + "/"
@@ -66,4 +60,22 @@ export default {
     }
 }
 </script>
-c
+
+<style scoped>
+.projection-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+</style>
+
+
+
+
+
+

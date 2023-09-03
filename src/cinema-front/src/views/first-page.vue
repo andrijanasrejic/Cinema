@@ -1,39 +1,44 @@
 <template>
     <div class="first-page">
       <header>
+        
      </header>
   
       <main>
+        <div>
+            <NavBarComponent></NavBarComponent>
+        </div>
         
         <section class="section weekly-repertoire">
           <repertoireComponent ></repertoireComponent>
         </section>
-        <hr>
+        
         <section class="section best-rated-movies">
           <div>
             <BestRatedMoviesComponent></BestRatedMoviesComponent>
           </div>
         </section>
 
-        <hr>
+        
         <section class="section movie-search">
           
           <MovieSearchComponent :user=false></MovieSearchComponent>
         </section>
-        <hr>
+        
        <section class="section login-form">
           <h2>Login</h2>
           <loginComponent></loginComponent>
         </section>
-        <hr>
+        
         <section class="section register-form">
           <h2>Register</h2>
           <registerComponent></registerComponent>
         </section>
-      </main>
-  
-      
+      </main>    
     </div>
+    <footer>
+        <p>&copy; 2023 Andrijana Srejić. All rights reserved.</p>
+      </footer>
   </template>
   
   <script>
@@ -44,14 +49,15 @@
   import repertoireComponent from '../components/weekly-repertoire.vue';
   import loginComponent from '../components/login.vue';
   import registerComponent from '../components/register.vue';
-
+  import NavBarComponent from '../components/nav-bar.vue';
   export default {
     components:{
       BestRatedMoviesComponent,
       MovieSearchComponent,
       repertoireComponent,
       loginComponent,
-      registerComponent
+      registerComponent,
+      NavBarComponent
     },
     data() {
       return {
@@ -72,13 +78,14 @@
     background-color: #000;
     color: #fff;
     font-family: Arial, sans-serif;
-    height: 160vh;
-    width: 200vh;
+    height: 170vh;
+    width: 120vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   
   header {
@@ -134,15 +141,5 @@
     border: none;
     cursor: pointer;
   }
-  
-  footer {
-    background-color: #141414;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  footer p {
-    color: #fff;
-    font-size: 14px;
-  }
+ 
   </style>

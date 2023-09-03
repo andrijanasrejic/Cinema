@@ -4,20 +4,20 @@
         <div>
           <NavBarComponent></NavBarComponent>
         </div>
-      <hr>
+      
       <div>
         <repertoireComponent></repertoireComponent>
       </div>
-      <hr>
+      
       <div>
         <MovieSearchComponent :user=true></MovieSearchComponent>
       </div>
-    <hr>
+    
       <div>
         <addMovieComponent></addMovieComponent>
       </div>
 
-      <hr>
+      
       <div class="spacer"></div>
 
       
@@ -25,17 +25,18 @@
         <projectionTime></projectionTime>
       </div>
 
-      <hr>
+      
       <div class="spacer"></div>
 
-      <div>
+      
+  </main>
+    <div>
         <logOutComponent></logOutComponent>
       </div>
-  </main>
-    
-    
-   
     </div>
+    <footer>
+        <p>&copy; 2023 Andrijana Srejić. All rights reserved.</p>
+      </footer>
   </template>
   
   <script>
@@ -46,7 +47,7 @@ import repertoireComponent from '../components/weekly-repertoire.vue';
 import addMovieComponent from '../components/add-movie.vue';
 import logOutComponent from '../components/log-out.vue';
 import projectionTime from '../components/add-projection.vue';
-
+import NavBarComponent from '../components/nav-bar.vue';
   export default {
     name:'adminPageVue',
     components: {
@@ -55,7 +56,8 @@ import projectionTime from '../components/add-projection.vue';
      repertoireComponent,
      addMovieComponent,
      logOutComponent,
-     projectionTime
+     projectionTime,
+     NavBarComponent
     },
     data() {
       return {
@@ -66,68 +68,59 @@ import projectionTime from '../components/add-projection.vue';
   };
   </script>
   
-  <style scoped>
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .admin-page {
-    background-color: #000;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    height: 160vh;
-    width: 200vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  header {
-    margin-bottom: 20px;
-  }
-  
- 
-  main {
-    flex-grow: 1;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .section {
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 800px;
-    padding: 20px;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  
-  button {
-    padding: 10px 20px;
-    background-color: red;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  footer {
-    background-color: #141414;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  footer p {
-    color: #fff;
-    font-size: 14px;
-  }
-  </style>
+<style scoped>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.admin-page {
+  background-color: #9a2323;
+  color: #333;
+  height: 130vh; /* Increase the height as needed */
+  width: 70vw; /* Increase the width as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.section {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+.spacer {
+  height: 20px;
+}
+
+
+button {
+  padding: 10px 20px;
+  background-color: red;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d50000;
+}
+
+</style>

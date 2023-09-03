@@ -3,19 +3,13 @@
   </header>
    <div class="container"> 
     <body>
-      <div>
-        <NavBarComponent></NavBarComponent>
+     
       <div>
     <router-view></router-view>
     
       </div>
-      </div>
     </body>
   </div>
-
-  <footer>
-        <p>&copy; 2023 Andrijana Srejić. All rights reserved.</p>
-      </footer>
 </template>
 
 <style>

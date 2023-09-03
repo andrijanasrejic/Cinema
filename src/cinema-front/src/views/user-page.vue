@@ -1,21 +1,27 @@
 <template>
-    <main>
+    <main class="user-page">
         <div>
             <NavBarComponent :user=userName></NavBarComponent>
         </div>
+        
+        <div class="spacer"></div>
 
-        <div>
+        <div class="best-rated-movies">
             <BestRatedMoviesComponent></BestRatedMoviesComponent>
         </div>
-        <hr>
-        <div>
+
+        <div class="spacer"></div>
+
+        <div class="weekly-repertoire">
             <repertoireComponent logedIn="true" @ticketBought="handleTransaction"></repertoireComponent>
         </div>
-        <hr>
-        <div>
+
+        <div class="spacer"></div>
+
+        <div class="movie-search">
             <MovieSearchComponent :user=true></MovieSearchComponent>
         </div>
-        <hr>
+        
         <div class="spacer"></div>
 
         <div>
@@ -23,6 +29,9 @@
         </div>
     </main>
     
+    <footer>
+        <p>&copy; 2023 Andrijana Srejić. All rights reserved.</p>
+    </footer>
     
 </template>
 
@@ -32,7 +41,7 @@
     import MovieSearchComponent from '../components/film-search.vue';
     import repertoireComponent from '../components/weekly-repertoire.vue';
     import logOutComponent from '../components/log-out.vue';
-
+    import NavBarComponent from '../components/nav-bar.vue';
     export default {
         name:'userPage',
         props: ['userName'],
@@ -40,7 +49,8 @@
             BestRatedMoviesComponent,
             MovieSearchComponent,
             repertoireComponent,
-            logOutComponent
+            logOutComponent,
+            NavBarComponent
         },
         methods : {
             async handleTransaction(film) {
@@ -57,3 +67,36 @@
     }
 
 </script>
+
+<style>
+.user-page {
+  background-color: #9a2323;
+  color: #333;
+  height: 130vh; /* Increase the height as needed */
+  width: 70vw; /* Increase the width as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .best-rated-movies {
+  margin-bottom: 20px;
+}
+
+.weekly-repertoire {
+  margin-bottom: 20px;
+}
+
+.movie-search {
+  margin-bottom: 20px;
+}
+
+.spacer {
+  height: 20px;
+}
+
+</style>
+  
