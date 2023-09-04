@@ -2,14 +2,18 @@
   <header>
   </header>
    <div class="container"> 
+
     <body>
      
       <div>
     <router-view></router-view>
-    
+        
       </div>
     </body>
   </div>
+
+  <img src="/src/assets/Stitch.jpg" class="stitch"/>
+
 </template>
 
 <style>
@@ -136,6 +140,14 @@
     color: #fff;
     font-size: 14px;
   }
+
+.stitch {
+  width: 150px; 
+  position: absolute;
+  top: 10px; 
+  left: 20px; 
+  background-color: transparent;
+}
 
 </style>
 

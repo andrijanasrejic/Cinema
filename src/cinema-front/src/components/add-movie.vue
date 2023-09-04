@@ -3,20 +3,17 @@
 
     <form @submit.prevent="uploadMovieData">
         <div>
-            <label for="filmName">Name:</label>
-            <input type="text" required="required" id="filmName" v-model="filmName">
+            <input type="text" required="required" id="filmName" v-model="filmName" placeholder="Name">
         </div>
-        <!--<div>
-            <label for="image">Poster:</label>
-           <input type="file" required="required" @change="handleImageChange">
-        </div>-->
+        <div>
+            <input type="text" required="required" id="releaseYear" v-model="releaseYear" placeholder="Year">
+        </div>
+        <div>
+            <input type="text" required="required" id="contentRating" v-model="contentRating" placeholder="Content rating">
+        </div>
+       
         <button type="submit">Add movie</button>
     </form>
-
-    <div v-if="image">
-        <h3>Selected Poster:</h3>
-        <img :src="image">
-    </div>
 
 </template>
 
@@ -28,34 +25,26 @@ export default {
     data() {
         return {
             filmName:"",
-            image: null,
-            showPoster:false,
-            maxWidth: 360,
-            maxHeight: 510,
-            formData:null
+            releaseYear:"",
+            contentRating:"",
         };
     },
     methods: {
         async uploadMovieData() {
           
-         
-            
-           
             try {
                 console.log(this.filmName)
                 const response = await axios.post(
-                    "http://localhost:8081/api/v1/films/upload/" + this.filmName
+                    "http://localhost:8081/api/v1/films/upload/" 
+                    + this.filmName + "/"
+                    + this.releaseYear + "/"
+                    + this.contentRating
                 ); 
 
 
             }catch(error){
                 console.error("An error occurred:", error);
             }
-        },
-        handleImageChange(event) {
-       
-         this.image = URL.createObjectURL(event.target.files[0]);
-         
         }
     }
 }

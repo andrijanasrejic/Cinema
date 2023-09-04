@@ -1,7 +1,9 @@
 <template>
-    <div>
-        <h1>Movies:</h1>
+    <div class="movies">
+
         <ul>
+            <h1>Movies:</h1>
+
             <li v-for="(movie, index) in movies" :key="index">
                 <div v-for="(value, key) in movie" :key="key">
                     <template v-if="key == 'name' || key=='poster' || key =='rating'">
@@ -18,7 +20,6 @@
                 <button @click.prevent="submitRating(movie.name, inputRating)">Submit Rating</button>
                 </form>
             </template>
-            <hr />
 
             </li>
             
@@ -26,6 +27,7 @@
     </div>
 
 
+    <div class="spacer"></div>
 
     <div>
         <button @click="back">
@@ -81,3 +83,83 @@ export default {
 
 };
 </script>
+
+<style scoped>
+.movies {
+  background-color: #9a2323;
+  color: #333;
+  height: 130vh; /* Increase the height as needed */
+  width: 70vw; /* Increase the width as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto; /* Add a vertical scrollbar when content overflows */
+}
+
+
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.movie-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.movie-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.rating-form {
+  margin-top: 10px;
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="number"] {
+  width: 50px;
+  padding: 5px;
+}
+
+.rating-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.rating-button:hover {
+  background-color: #0056b3;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+</style>

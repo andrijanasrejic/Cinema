@@ -9,7 +9,10 @@
           <output>{{ film.name }}</output>
           <div class="spacer"></div>
           <output>Overall rating: {{ film.rating }}</output>
-
+          <div class="spacer"></div>
+          <output>Release year: {{ film.release_year }}</output>
+          <div class="spacer"></div>
+          <output>Content rating: {{ film.content_rating }}</output>
           <div class="spacer"></div>
           <template v-if="user">
             <label for="userRating">Your Rating:</label>

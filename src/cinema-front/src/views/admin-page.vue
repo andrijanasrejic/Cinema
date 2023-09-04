@@ -1,6 +1,6 @@
 <template>
     <div class="admin-page">
-      <main>
+      <main class="content">
         <div>
           <NavBarComponent></NavBarComponent>
         </div>
@@ -76,10 +76,11 @@ body {
   background-color: #f2f2f2;
 }
 
+
 .admin-page {
   background-color: #9a2323;
   color: #333;
-  height: 130vh; /* Increase the height as needed */
+  height: 160vh; /* Increase the height as needed */
   width: 70vw; /* Increase the width as needed */
   display: flex;
   flex-direction: column;
@@ -87,6 +88,7 @@ body {
   align-items: center;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
 }
 
 .section {

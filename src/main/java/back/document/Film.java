@@ -18,7 +18,10 @@ public class Film {
     private String name;
     private float overall_rating = 0;
 
-    private byte[] poster;
+
+    private int release_year;
+    private String content_rating;
+
     List<Integer> ratings;
 
     // Repertoire list
@@ -32,6 +35,23 @@ public class Film {
         return name;
     }
 
+
+    public int getRelease_year() {
+        return release_year;
+    }
+
+    public void setRelease_year(int release_year) {
+        this.release_year = release_year;
+    }
+
+    public String getContent_rating() {
+        return content_rating;
+    }
+
+    public void setContent_rating(String content_rating) {
+        this.content_rating = content_rating;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -40,13 +60,7 @@ public class Film {
         return this.overall_rating;
     }
 
-    public byte[] getPoster() {
-        return poster;
-    }
 
-    public void setPoster(byte[] poster) {
-        this.poster = poster;
-    }
 
     public List<Projection> getProjection() {
         return projections;
@@ -65,9 +79,11 @@ public class Film {
 
 
 
-    public Film(String name) {
+    public Film(String name, int release_year, String content_rating) {
 
         this.name = name;
+        this.release_year = release_year;
+        this.content_rating = content_rating;
         this.projections = new ArrayList<Projection>();
         this.ratings = new ArrayList<Integer>();
     }

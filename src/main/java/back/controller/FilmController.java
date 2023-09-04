@@ -92,9 +92,10 @@ public class FilmController {
     }
 
     
-    @PostMapping("/films/upload/{name}")
-    public Film addFilm(@PathVariable(value = "name") String name) {
-        Film film = new Film(name);
+    @PostMapping("/films/upload/{name}/{year}/{rating}")
+    public Film addFilm(@PathVariable(value = "name") String name, @PathVariable(value = "year") int year,
+                        @PathVariable(value = "rating") String content_rating) {
+        Film film = new Film(name, year, content_rating);
 
         return filmRepository.save(film);
     }
