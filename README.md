@@ -18,7 +18,7 @@
 ## Setup :black_cat:
 Klonirati repozitorijum i pozicionirati se u njega:
 ```
-
+git clone https://github.com/andrijanasrejic/Cinema.git
 ```
 
 ## Instructions :smile:
