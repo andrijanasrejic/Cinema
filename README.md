@@ -4,8 +4,8 @@
 ## Table of contents :book:
 * [General info](#general-info-point_down)
 * [Technologies](#technologies-wrench)
-* [Setup](#setup-dragon_face)
-* [Instructions](#playing-instructions-smile)
+* [Setup](#setup-black_cat)
+* [Instructions](#instructions-smile)
 
 * ## General info :point_down:
 **Aplikacija uz pomoc koje se može upravljati i mogu se koristiti usluge bioskopa.**
@@ -15,7 +15,7 @@
 - **Vue.js**
 - **MongoDB**
 
-## Setup :dragon_face:
+## Setup :black_cat:
 Klonirati repozitorijum i pozicionirati se u njega:
 ```
 
