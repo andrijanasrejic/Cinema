@@ -5,7 +5,6 @@
 * [General info](#general-info-point_down)
 * [Technologies](#technologies-wrench)
 * [Setup](#setup-black_cat)
-* [Instructions](#instructions-smile)
 
 * ## General info :point_down:
 **Aplikacija uz pomoc koje se može upravljati i mogu se koristiti usluge bioskopa.**
@@ -36,7 +35,7 @@ Za pokretanje front end aplikacije:
 npm run dev u folderu src\cinema-front
 ```
 
-## Instructions :smile:
+
 
 
 
