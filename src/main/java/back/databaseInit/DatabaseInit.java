@@ -4,8 +4,15 @@ import back.document.Film;
 import back.document.User;
 import back.repository.FilmRepository;
 import back.repository.UserRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
 
 @Component
 public class DatabaseInit implements CommandLineRunner {
@@ -16,15 +23,12 @@ public class DatabaseInit implements CommandLineRunner {
         this.userRepository = userRepository;
     }
 
-    public void run(String... args){
+    public void run(String... args) throws IOException {
 
-        //filmRepository.deleteAll();
-        //userRepository.deleteAll();
 
-        /*
-        User admin = new User("Andrijana", "123", "andrijana@srejic.com");
-        admin.setAdmin();
-        userRepository.save(admin);
-        */
+        //User admin = new User("Andrijana", "123", "andrijana@srejic.com");
+        //admin.setAdmin();
+        //userRepository.save(admin);
+
     }
 }

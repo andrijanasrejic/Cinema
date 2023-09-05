@@ -88,15 +88,15 @@ export default {
 .movies {
   background-color: #9a2323;
   color: #333;
-  height: 130vh; /* Increase the height as needed */
-  width: 70vw; /* Increase the width as needed */
+  height: 550vh;
+  width: 70vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  overflow-y: auto; /* Add a vertical scrollbar when content overflows */
+  overflow-y: auto;
 }
 
 

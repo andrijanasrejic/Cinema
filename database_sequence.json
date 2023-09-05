@@ -1,0 +1,312 @@
+[
+  {
+    "_id": "64f7a102d8f9e9717c09db20",
+    "name": "The Shawshank Redemption",
+    "overall_rating": 0,
+    "release_year": 1994,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db21",
+    "name": "The Godfather",
+    "overall_rating": 0,
+    "release_year": 1972,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db22",
+    "name": "The Dark Knight",
+    "overall_rating": 0,
+    "release_year": 2008,
+    "content_rating": "PG-13",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db23",
+    "name": "Pulp Fiction",
+    "overall_rating": 0,
+    "release_year": 1994,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db24",
+    "name": "Schindler's List",
+    "overall_rating": 0,
+    "release_year": 1993,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db25",
+    "name": "Forrest Gump",
+    "overall_rating": 0,
+    "release_year": 1994,
+    "content_rating": "PG-13",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db26",
+    "name": "The Matrix",
+    "overall_rating": 0,
+    "release_year": 1999,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db27",
+    "name": "The Lord of the Rings: The Fellowship of the Ring",
+    "overall_rating": 0,
+    "release_year": 2001,
+    "content_rating": "PG-13",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db28",
+    "name": "Star Wars: Episode IV - A New Hope",
+    "overall_rating": 0,
+    "release_year": 1977,
+    "content_rating": "PG",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db29",
+    "name": "The Silence of the Lambs",
+    "overall_rating": 0,
+    "release_year": 1991,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db2a",
+    "name": "Gladiator",
+    "overall_rating": 0,
+    "release_year": 2000,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db2b",
+    "name": "Braveheart",
+    "overall_rating": 0,
+    "release_year": 1995,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db2c",
+    "name": "Inception",
+    "overall_rating": 0,
+    "release_year": 2010,
+    "content_rating": "PG-13",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db2d",
+    "name": "The Lord of the Rings: The Return of the King",
+    "overall_rating": 0,
+    "release_year": 2003,
+    "content_rating": "PG-13",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db2e",
+    "name": "Avatar",
+    "overall_rating": 0,
+    "release_year": 2009,
+    "content_rating": "PG-13",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db2f",
+    "name": "Jurassic Park",
+    "overall_rating": 0,
+    "release_year": 1993,
+    "content_rating": "PG-13",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db30",
+    "name": "E.T. the Extra-Terrestrial",
+    "overall_rating": 0,
+    "release_year": 1982,
+    "content_rating": "PG",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db31",
+    "name": "Titanic",
+    "overall_rating": 0,
+    "release_year": 1997,
+    "content_rating": "PG-13",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db32",
+    "name": "The Lion King",
+    "overall_rating": 0,
+    "release_year": 1994,
+    "content_rating": "G",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db33",
+    "name": "The Avengers",
+    "overall_rating": 0,
+    "release_year": 2012,
+    "content_rating": "PG-13",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db34",
+    "name": "The Terminator",
+    "overall_rating": 0,
+    "release_year": 1984,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db35",
+    "name": "The Exorcist",
+    "overall_rating": 0,
+    "release_year": 1973,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db36",
+    "name": "Rocky",
+    "overall_rating": 0,
+    "release_year": 1976,
+    "content_rating": "PG",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db37",
+    "name": "Back to the Future",
+    "overall_rating": 0,
+    "release_year": 1985,
+    "content_rating": "PG",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db38",
+    "name": "The Green Mile",
+    "overall_rating": 0,
+    "release_year": 1999,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db39",
+    "name": "The Sixth Sense",
+    "overall_rating": 0,
+    "release_year": 1999,
+    "content_rating": "PG-13",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db3a",
+    "name": "Indiana Jones and the Last Crusade",
+    "overall_rating": 0,
+    "release_year": 1989,
+    "content_rating": "PG-13",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db3b",
+    "name": "Forrest Gump",
+    "overall_rating": 0,
+    "release_year": 1994,
+    "content_rating": "PG-13",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db3c",
+    "name": "Fight Club",
+    "overall_rating": 0,
+    "release_year": 1999,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db3d",
+    "name": "The Pianist",
+    "overall_rating": 0,
+    "release_year": 2002,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  },
+  {
+    "_id": "64f7a102d8f9e9717c09db3e",
+    "name": "Saving Private Ryan",
+    "overall_rating": 0,
+    "release_year": 1998,
+    "content_rating": "R",
+    "ratings": [],
+    "projections": [],
+    "_class": "back.document.Film"
+  }
+]
