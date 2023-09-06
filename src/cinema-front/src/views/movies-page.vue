@@ -60,16 +60,22 @@ export default {
                 console.error("An error occurred:", error);
             }
         },
-        back(){
+        async back(){
             if(this.userName != 'undefined'){
+              const response = await axios.get("http://127.0.0.1:8081/user/" + this.userName);
+              const admin = response.data.admin;
+              if(!admin){
                 this.$router.push(`/user-page/${this.userName}`);
-            } else {
+              }
+              else {
+                this.$router.push(`/admin-page/${this.userName}`);
+              }
+              } else {
                 this.$router.push('/');
             }
         }
     },
     async mounted() {
-        console.log(this.userName);
         try {
         const response = await axios.get('http://localhost:8081/api/v1/films');
         this.movies = response.data

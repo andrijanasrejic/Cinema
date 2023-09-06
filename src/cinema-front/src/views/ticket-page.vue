@@ -1,4 +1,5 @@
 <template>
+  <template v-if="admin == 'false'">
   <div class="ticket-page">
     <h1>Projections for {{ userName }}:</h1>
     <ul class="projection-list">
@@ -16,7 +17,26 @@
       </li>
     </ul>
   </div>
-
+  </template>
+  <template v-else>
+    <div class="ticket-page">
+    <h1>All bought projections:</h1>
+    <ul class="projection-list">
+      <li v-for="(projection, index) in projections" :key="index" class="projection-item">
+        <div v-for="(value, key) in projection" :key="key">
+          <template v-if="key == 'theaterSize'">
+            <strong class="key">
+              ticketNumber:
+            </strong> {{ value }}
+          </template>
+          <template v-else>
+            <strong class="key">{{ key }}:</strong> {{ value }}
+          </template>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </template>
   <div class="button-container">
     <button @click="back" class="back-button">Back</button>
   </div>
@@ -27,7 +47,7 @@
   
   export default {
     name: 'ticketPage',
-    props: ['userName'],
+    props: ['userName', 'admin'],
     data() {
       return {
         projections: [],
@@ -35,17 +55,26 @@
     },
     methods: {
         back(){
-            this.$router.push(`/user-page/${this.userName}`);
-        }
+            if(this.admin == 'false'){
+              this.$router.push(`/user-page/${this.userName}`);
+            } else {
+              this.$router.push(`/admin-page/${this.userName}`)
+            }
+          }
     },
     async mounted() {
+      if(this.admin == 'false'){
       try {
         const response = await axios.get(`http://127.0.0.1:8081/user/projections/${this.userName}`);
         this.projections = response.data;
-        console.log(response);
       } catch (error) {
         console.error('Error fetching projections:', error);
       }
+    }
+    else {
+      const response = await axios.get('http://127.0.0.1:8081/user/projections');
+      this.projections = response.data;
+    }
     },
   };
   </script>

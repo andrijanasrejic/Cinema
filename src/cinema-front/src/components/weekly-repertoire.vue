@@ -39,7 +39,6 @@ export default {
             axios.get('http://127.0.0.1:8081/api/v1/films/week').then(response => {
                 this.films = response.data;
                 console.log(this.films);
-                window.console.log(this.films);
             })
             .catch(error => {
                 console.log("Error when fetching projections:", error);
@@ -49,12 +48,9 @@ export default {
         },
         handleFilmClick(film){
             this.selectedMovie = !this.selectedMovie;
-            console.log(this.logedIn);
-            console.log(this.selectedMovie);
 
         },
         async buyTicket(film) {
-            console.log(film);
             if(film.theaterSize == 0){
                 alert("This projection is sold out");
                 return;
@@ -65,7 +61,6 @@ export default {
             + film.time + "/"
             + film.theaterSize);
 
-            console.log(response);
             this.$emit("ticketBought", film);
         },
         clear(){

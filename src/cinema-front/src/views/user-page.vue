@@ -61,7 +61,6 @@
             +   film.theaterSize + "/"
             +   film.ticketPrice);
 
-                console.log(response);
             }
         }
     }

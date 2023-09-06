@@ -27,7 +27,7 @@
 
 <script>
 import FlatPickr from "vue-flatpickr-component";
-import "flatpickr/dist/flatpickr.css"; // Import the Flatpickr CSS
+import "flatpickr/dist/flatpickr.css"; 
 import axios from 'axios';
 export default {
     name: "projectionTime",
@@ -42,15 +42,13 @@ export default {
             ticketPrice: null,
             flatpickrConfig: {
                 enableTime: true,
-                dateFormat: "Y-m-d H:i", // Adjust the format as needed
+                dateFormat: "Y-m-d H:i", 
             },
         };
     },
     methods: { 
         async uploadProjectionTime() {
-            console.log("Film:", this.searchTerm);
-            console.log("Projection time:", this.projectionTime);
-
+            
             const response = await axios.put('http://localhost:8081/api/v1/films/projection/'
             + this.filmName + "/"
             + this.projectionTime + "/"

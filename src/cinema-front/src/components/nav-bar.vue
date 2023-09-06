@@ -13,6 +13,7 @@
 
 
 <script>
+import axios from 'axios';
 
 export default {
         name: 'NavBarComponent',
@@ -25,24 +26,23 @@ export default {
             }
         },
         methods: {
-          ticketPage(){
+          async ticketPage(){
               const userName = this.$router.currentRoute._value.params.userName
               if(!userName){
                 alert("Log in for this feature");
                 return;
               }
-
-              this.$router.push(`/tickets/${userName}`);
+              const response = await axios.get("http://127.0.0.1:8081/user/" + userName);
+              const data = response.data;
+              this.$router.push(`/tickets/${userName}/${data.admin}`);
           },
           moviePage(){
             const userName = this.$router.currentRoute._value.params.userName
+            
             this.$router.push(`/movies/${userName}`);
 
           }
         },
-        mounted() {
-          console.log(this.user);
-        }
     }
 
 </script>

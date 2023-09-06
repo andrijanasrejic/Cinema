@@ -12,7 +12,7 @@
     </body>
   </div>
 
-  <img src="/src/assets/Stitch.jpg" class="stitch"/>
+  
 
 </template>
 

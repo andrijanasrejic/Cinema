@@ -4,12 +4,14 @@ import back.document.Film;
 import back.document.Projection;
 import back.document.User;
 import back.repository.UserRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -82,10 +84,30 @@ public class UserController {
 
     @GetMapping("/user/projections/{name}")
     public List<Projection> getProjections(@PathVariable(value = "name") String name){
-        System.out.println(name);
         User user = userRepository.findByUserName(name);
 
         return user.getReservedProjections();
+    }
+
+    @GetMapping("/user/{name}")
+    public User getUser(@PathVariable(value = "name") String name){
+        User user = userRepository.findByUserName(name);
+        return user;
+    }
+
+    @GetMapping("/user/projections")
+    public ResponseEntity<List<Projection>> getAllProjections(){
+        List<User> users = userRepository.findAll();
+
+        List<Projection> projections = new ArrayList<Projection>();
+
+        for(User user : users){
+            for(Projection projection : user.getReservedProjections()){
+                projections.add(projection);
+            }
+        }
+
+        return ResponseEntity.ok(projections);
     }
 
 }

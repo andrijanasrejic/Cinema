@@ -34,16 +34,13 @@ methods: {
             try {
                 
             const response = await axios.post('http://localhost:8081/register' + '/' + this.username + '/' + this.password + '/' + this.email);
-             // Handle success response
             console.log('Registration successful:', response.data);
             alert('Registration successful');
         
-        // Reset form fields
             this.username = '';
             this.password = '';
             this.email = '';
         } catch (error) {
-        // Handle error response
             console.error('Registration failed:', error);
       }
 

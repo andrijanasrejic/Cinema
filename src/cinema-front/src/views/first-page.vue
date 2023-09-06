@@ -78,7 +78,7 @@
     background-color: #000;
     color: #fff;
     font-family: Arial, sans-serif;
-    height: 170vh;
+    height: 190vh;
     width: 120vh;
     display: flex;
     flex-direction: column;

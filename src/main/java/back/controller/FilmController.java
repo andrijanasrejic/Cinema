@@ -45,7 +45,6 @@ public class FilmController {
         }
 
 
-        System.out.println(film.getName());
         return ResponseEntity.ok().body(film);
     }
 
@@ -126,16 +125,13 @@ public class FilmController {
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Film not found!");
         }
-        System.out.println(film.getName());
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime dateTime = LocalDateTime.parse(time, formatter);
 
         Projection projection = new Projection(dateTime, name, price, size);
-        System.out.println(projection.getTime());
-
 
         film.addProjection(projection);
-
 
         filmRepository.save(film);
 

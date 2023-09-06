@@ -29,7 +29,7 @@ const router = createRouter({
       props: true
     },
     {
-      path:'/tickets/:userName',
+      path:'/tickets/:userName/:admin',
       name:'ticket-page',
       component: ticketPage,
       props: true
